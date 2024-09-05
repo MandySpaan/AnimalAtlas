@@ -44,4 +44,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Get the animals that the user likes.
+     */
+    public function likedAnimals()
+    {
+        return $this->belongsToMany(Animal::class, 'likes');
+    }
 }

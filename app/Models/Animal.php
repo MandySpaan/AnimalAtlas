@@ -26,4 +26,11 @@ class Animal extends Model
             'updated_at' => 'datetime',
         ];
     }
+    /**
+     * Get the users that like the animal.
+     */
+    public function likedByUsers()
+    {
+        return $this->belongsToMany(User::class, 'likes');
+    }
 }
