@@ -17,7 +17,7 @@ return new class extends Migration
            $table->id();
            $table->string('name');
            $table->string('scientific_name')->nullable();
-           $table->text('description')->nullable();
+           $table->text('fun_fact')->nullable();
            $table->string('image_url')->nullable();
            $table->enum('category', ['vertebrate', 'invertebrate']);
            $table->enum('type', ['mammal', 'bird', 'reptile', 'amphibian', 'fish',
