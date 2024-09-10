@@ -21,9 +21,9 @@ return new class extends Migration
            $table->string('image_url')->nullable();
            $table->enum('category', ['vertebrate', 'invertebrate']);
            $table->enum('type', ['mammal', 'bird', 'reptile', 'amphibian', 'fish',
-               'Cnidaria', 'Arthropoda', 'Mollusca', 'Annelida', 'Echinodermata']);
-           $table->enum('diet', ['Herbivore', 'Carnivore', 'Omnivore']);
-           $table->enum('habitat', ['Terrestrial', 'Aquatic', 'Arboreal']);
+               'cnidaria', 'arthropoda', 'mollusca', 'annelida', 'echinodermata']);
+           $table->enum('diet', ['herbivore', 'carnivore', 'omnivore']);
+           $table->enum('habitat', ['terrestrial', 'aquatic', 'arboreal']);
            $table->timestamps();
        });
    }
