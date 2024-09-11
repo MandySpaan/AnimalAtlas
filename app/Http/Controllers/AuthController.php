@@ -55,7 +55,10 @@ class AuthController extends Controller
         }
 
         if (Auth::attempt($request->only('email', 'password'))) {
-            return redirect()->intended('animals');
+            $user = Auth::user();
+            $token = $user->createToken('auth_token')->plainTextToken;
+
+            return redirect()->intended('animals')->with('token', $token);
         }
 
         return redirect()->back()->withErrors([
@@ -65,6 +68,8 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
+        $request->user()->tokens()->delete();
+
         Auth::logout();
         return redirect()->route('login');
     }
