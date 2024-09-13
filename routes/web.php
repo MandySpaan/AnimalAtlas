@@ -19,7 +19,7 @@ Route::post('login', [AuthController::class, 'login']);
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 // User routes
-Route::get('user', [UserController::class, 'profile'])->name('user.profile');
+Route::get('profile', [UserController::class, 'profile'])->name('user.profile');
 
 // Animal routes
 Route::get('animals', [AnimalController::class, 'index'])->name('animals.index');
