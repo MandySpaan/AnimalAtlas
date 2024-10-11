@@ -19,6 +19,10 @@
                 Diet: {{ $animal->diet }}<br>
                 Habitat: {{ $animal->habitat }}<br>
             </li>
+            <form action="{{ route('animals.like', $animal->id) }}" method="POST">
+                    @csrf
+                    <button type="submit">Like</button>
+            </form>
         @empty
             <li>No animals found.</li>
         @endforelse

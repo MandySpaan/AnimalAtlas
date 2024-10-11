@@ -23,3 +23,4 @@ Route::get('profile', [UserController::class, 'profile'])->name('user.profile');
 
 // Animal routes
 Route::get('animals', [AnimalController::class, 'index'])->name('animals.index');
+Route::post('/animals/{animal}/like', [AnimalController::class, 'like'])->name('animals.like');
