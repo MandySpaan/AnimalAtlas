@@ -26,11 +26,16 @@ class Animal extends Model
             'updated_at' => 'datetime',
         ];
     }
-    /**
-     * Get the users that like the animal.
-     */
+
+    // Get the users that like the animal
     public function likedByUsers()
     {
         return $this->belongsToMany(User::class, 'likes');
+    }
+
+    // Get the count of likes for the animal
+    public function getLikesCountAttribute(): int
+    {
+        return $this->likedByUsers()->count();
     }
 }
