@@ -23,6 +23,7 @@
                     @csrf
                     <button type="submit">Like</button>
             </form>
+            <span>{{ $animal->likes_count ?? 0 }} Likes</span>
         @empty
             <li>No animals found.</li>
         @endforelse

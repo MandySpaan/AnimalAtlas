@@ -11,7 +11,7 @@ class AnimalController extends Controller
 {
     public function index()
     {
-        $animals = Animal::all();
+        $animals = Animal::withCount('likedByUsers')->get();
         return view('animals.index', compact('animals'));
     }
 
