@@ -20,11 +20,13 @@ class AnimalController extends Controller
         $animal = Animal::findOrFail($id);
 
         if (Auth::check()) {
-            $likeExists = Like::where('user_id', Auth::id())
-                ->where('animal_id', $animal->id)
-                ->exists();
+            $like = Like::where('user_id', Auth::id())
+            ->where('animal_id', $animal->id)
+            ->first();
 
-            if (!$likeExists) {
+                if ($like) {
+                    $like->delete();
+                } else {
                 Like::create([
                     'user_id' => Auth::id(),
                     'animal_id' => $animal->id,
