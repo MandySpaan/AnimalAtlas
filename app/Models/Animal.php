@@ -38,4 +38,9 @@ class Animal extends Model
     {
         return $this->likedByUsers()->count();
     }
+
+    public function isLikedByUser($userId): bool
+    {
+        return $this->likedByUsers()->where('user_id', $userId)->exists();
+    }
 }

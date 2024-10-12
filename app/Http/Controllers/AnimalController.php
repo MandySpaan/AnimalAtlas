@@ -12,7 +12,8 @@ class AnimalController extends Controller
     public function index()
     {
         $animals = Animal::withCount('likedByUsers')->get();
-        return view('animals.index', compact('animals'));
+        $likedAnimalIds = Auth::check() ? Auth::user()->likedAnimals()->pluck('animal_id')->toArray() : [];
+        return view('animals.index', compact('animals', 'likedAnimalIds'));
     }
 
     public function like($id)

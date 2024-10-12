@@ -21,7 +21,11 @@
             </li>
             <form action="{{ route('animals.like', $animal->id) }}" method="POST">
                     @csrf
-                    <button type="submit">Like</button>
+                    @if (in_array($animal->id, $likedAnimalIds))
+                        <button type="submit">Unlike</button>
+                    @else
+                        <button type="submit">Like</button>
+                    @endif
             </form>
             <span>{{ $animal->likes_count ?? 0 }} Likes</span>
         @empty
